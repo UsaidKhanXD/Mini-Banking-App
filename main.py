@@ -5,8 +5,10 @@ from fastapi.templating import Jinja2Templates
 from passlib.context import CryptContext
 from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
-from database import get_db
+from database import Base,get_db,engine
 import models
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
